@@ -1,11 +1,16 @@
-import prisma from "@/lib/db";
-
-const Page = async() => {
-  const users = await prisma.user.findMany();
+"use client";
+import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth-client";
+const Page = () => {
+  const Data = authClient.useSession();
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center py-2">
-      {JSON.stringify(users)}
+    <div className="min-h-screen min-w-screen flex items-center justify-center">
+      {JSON.stringify(Data)}
+      {Data && (<Button onClick={() => authClient.signOut()}>Sign Out</Button>)}
+
+
     </div>
-  );
-};
-export default Page;
+  )
+} 
+
+export default Page
