@@ -1,0 +1,12 @@
+import AuthLayout from "@/features/AuthLayout";
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  return( 
+  <AuthLayout>
+    {children}
+  </AuthLayout>
+  
+  
+  );
+};
+export default Layout;
